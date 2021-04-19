@@ -1,4 +1,7 @@
 #include "AVL.h"
+#include <fstream>
+
+ofstream  writeFile;
 
 int AVL::height(NumberNode* node)
 {
@@ -130,6 +133,22 @@ void AVL::breadthFirstTraversal(NumberNode* p)
 
     while (numberQ.empty() == false)
     {
+        NumberLevelNode node = numberQ.front();
+        if (node.level != previousLevel)
+        {
+            writeFile.open("output-a1q2.txt");
+            writeFile << endl;
+            writeFile << node.level << "- ";
+            previousLevel = node.level;
+        }
+        writeFile << node.number << " ";
+        numberQ.pop();
+
+        if (node.number->leftChild != NULL)
+            numberQ.push(NumberLevelNode(node.number->leftChild, node.level + 1));
+
+        if (node.number->rightChild != NULL)
+            numberQ.push(NumberLevelNode(node.number->rightChild, node.level + 1));
 
     }
 
