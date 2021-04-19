@@ -8,6 +8,7 @@ using namespace std;
 
 class NumberLevelNode
 {
+public:
 	NumberNode* number;
 	int level;
 
