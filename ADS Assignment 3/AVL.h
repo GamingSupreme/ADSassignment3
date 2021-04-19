@@ -25,7 +25,7 @@ public:
 	NumberNode* root = NULL;
 
 	int height(NumberNode* node);
-	int difference(NumberNode* Node);
+	int difference(NumberNode* node);
 
 	//All rotation functions
 	NumberNode* RRrotation(NumberNode* parent);
@@ -37,8 +37,11 @@ public:
 	NumberNode* balance(NumberNode* parent);
 
 	//Insert Function
-	NumberNode* insert(NumberNode* parent, NumberNode* newNumber);
+	NumberNode* AVLinsert(NumberNode* parent, NumberNode* newNumber);
+	void insert(NumberNode* newNumber);
 
 	void breadthFirstTraversal(NumberNode* p);
+
+	void inOrderTraversal(NumberNode* current);
 };
 

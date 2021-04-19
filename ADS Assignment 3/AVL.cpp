@@ -18,14 +18,14 @@ int AVL::height(NumberNode* node)
     return h;
 }
 
-int AVL::difference(NumberNode* Node)
+int AVL::difference(NumberNode* node)
 {
     //just incase the tree is empty
-    if (Node == NULL)
+    if (node == NULL)
         return 0;
 
-    int leftHeight = height(Node->leftChild);
-    int rightHeight = height(Node->rightChild);
+    int leftHeight = height(node->leftChild);
+    int rightHeight = height(node->rightChild);
     int balanceFactor = leftHeight - rightHeight;
 
     return balanceFactor;
@@ -100,7 +100,7 @@ NumberNode* AVL::balance(NumberNode* parent)
     return parent;
 }
 
-NumberNode* AVL::insert(NumberNode* parent, NumberNode* newNumber)
+NumberNode* AVL::AVLinsert(NumberNode* parent, NumberNode* newNumber)
 {
     //incase tree is empty this will be the new parent
     if (parent == NULL)
@@ -111,18 +111,24 @@ NumberNode* AVL::insert(NumberNode* parent, NumberNode* newNumber)
 
     if (newNumber->Number < parent->Number)
     {
-        parent->leftChild = insert(parent->leftChild, newNumber);
+        parent->leftChild = AVLinsert(parent->leftChild, newNumber);
         parent = balance(parent);
     }
     else
     {
-        parent->rightChild = insert(parent->rightChild, newNumber);
+        parent->rightChild = AVLinsert(parent->rightChild, newNumber);
         parent = balance(parent);
     }
 }
 
+void AVL::insert(NumberNode* newNumber)
+{
+    root = AVLinsert(root, newNumber);
+} 
+
 void AVL::breadthFirstTraversal(NumberNode* p)
 {
+    writeFile.open("output-a1q2.txt");
     //incase tree is empty
     if (root == NULL) return;
 
@@ -136,12 +142,11 @@ void AVL::breadthFirstTraversal(NumberNode* p)
         NumberLevelNode node = numberQ.front();
         if (node.level != previousLevel)
         {
-            writeFile.open("output-a1q2.txt");
             writeFile << endl;
-            writeFile << node.level << "- ";
+            writeFile << node.level << ": ";
             previousLevel = node.level;
         }
-        writeFile << node.number << " ";
+        writeFile << node.number->Number << " ";
         numberQ.pop();
 
         if (node.number->leftChild != NULL)
@@ -152,4 +157,14 @@ void AVL::breadthFirstTraversal(NumberNode* p)
 
     }
 
+}
+
+void AVL::inOrderTraversal(NumberNode* current)
+{
+    if (current != NULL)
+    {
+        inOrderTraversal(current->leftChild);
+        cout << current->Number << endl;
+        inOrderTraversal(current->rightChild);
+    }
 }
