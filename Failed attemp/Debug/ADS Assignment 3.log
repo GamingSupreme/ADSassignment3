@@ -1,7 +1,0 @@
-﻿  AVL.cpp
-  NumberNode.cpp
-  Source.cpp
-C:\Users\joshu\Documents\Uni\Torrens\Uni Work\ADS algo\Assignment 3\ADS Assignment 3\Source.cpp(9,1): warning C4326: return type of 'main' should be 'int' instead of 'void'
-  Generating Code...
-C:\Users\joshu\Documents\Uni\Torrens\Uni Work\ADS algo\Assignment 3\ADS Assignment 3\AVL.cpp(122): warning C4715: 'AVL::AVLinsert': not all control paths return a value
-  ADS Assignment 3.vcxproj -> C:\Users\joshu\Documents\Uni\Torrens\Uni Work\ADS algo\Assignment 3\ADS Assignment 3\Debug\ADS Assignment 3.exe
