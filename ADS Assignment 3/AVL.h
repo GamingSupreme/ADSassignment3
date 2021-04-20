@@ -23,6 +23,8 @@ class AVL
 {
 public:
 	NumberNode* root = NULL;
+	void insert(NumberNode* newStudent);
+	NumberNode* search(int StudentID, bool showSearchPath = false);
 
 	int height(NumberNode* node);
 	int difference(NumberNode* node);
@@ -38,7 +40,6 @@ public:
 
 	//Insert Function
 	NumberNode* AVLinsert(NumberNode* parent, NumberNode* newNumber);
-	void insert(NumberNode* newNumber);
 
 	void breadthFirstTraversal(NumberNode* p);
 

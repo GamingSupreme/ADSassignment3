@@ -114,7 +114,7 @@ NumberNode* AVL::AVLinsert(NumberNode* parent, NumberNode* newNumber)
         parent->leftChild = AVLinsert(parent->leftChild, newNumber);
         parent = balance(parent);
     }
-    else
+    else if (newNumber->Number > parent->Number)
     {
         parent->rightChild = AVLinsert(parent->rightChild, newNumber);
         parent = balance(parent);
@@ -124,6 +124,38 @@ NumberNode* AVL::AVLinsert(NumberNode* parent, NumberNode* newNumber)
 void AVL::insert(NumberNode* newNumber)
 {
     root = AVLinsert(root, newNumber);
+    /*if (root == NULL)
+    {
+        root = newNumber;
+        return;
+    }
+
+    NumberNode* current = root;
+    NumberNode* parent = NULL;
+
+    while (true)
+    {
+        parent = current;
+
+        if (newNumber->Number < current->Number)
+        {
+            current = current->leftChild;
+            if (current == NULL)
+            {
+                parent->leftChild = newNumber;
+                return;
+            }
+        }
+        else
+        {
+            current = current->rightChild;
+            if (current == NULL)
+            {
+                parent->rightChild = newNumber;
+                return;
+            }
+        }
+    }*/
 } 
 
 void AVL::breadthFirstTraversal(NumberNode* p)
