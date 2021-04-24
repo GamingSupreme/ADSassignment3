@@ -18,10 +18,6 @@ public:
 	void heapifyup(int index);
 	void heapifydown(int index);
 
-	void Insert(Number element);
-	void DeleteMin();
-	Number* ExtractMin();
 	void showHeap();
-	int Size();
 };
 
