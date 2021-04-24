@@ -18,6 +18,7 @@ public:
 	void heapifyup(int index);
 	void heapifydown(int index);
 
+	void Insert(Number number);
 	void showHeap();
 };
 

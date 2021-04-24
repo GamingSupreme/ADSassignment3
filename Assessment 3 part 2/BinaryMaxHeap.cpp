@@ -60,8 +60,14 @@ void BinaryMaxHeap::heapifydown(int index)
         heap[index] = heap[childIndex];
         heap[childIndex] = temp;
 
-        heapifydown;
+        heapifydown(childIndex);
     }
+}
+
+void BinaryMaxHeap::Insert(Number number)
+{
+    heap.push_back(number);
+    //heapifyup(heap.size() - 1);
 }
 
 void BinaryMaxHeap::showHeap()
@@ -71,5 +77,5 @@ void BinaryMaxHeap::showHeap()
     {
         writeFile << n.number << " ";
     }
-    writeFile << endl;
+    writeFile.close();
 }
